@@ -14,7 +14,7 @@ Vue.use(Meta);
 
 const router = new Router({
   mode: 'history',
-  base: process.env.APP_BASE,
+  base: window.__POWERED_BY_QIANKUN__ ? '/vue-starter' + process.env.APP_BASE : process.env.APP_BASE,
   routes: [
     { path: '/', component: Home, meta: { home: true } },
 

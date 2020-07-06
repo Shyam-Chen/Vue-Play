@@ -7,7 +7,7 @@ function Environments() {
     'Starter templates for building full-featured Progressive Web Apps from Vue components.';
 
   this.HOST_NAME = process.env.HOST_NAME || '0.0.0.0';
-  this.SITE_PORT = process.env.SITE_PORT || 8000;
+  this.SITE_PORT = process.env.SITE_PORT || 8003;
   this.SITE_URL = process.env.SITE_URL || `http://${this.HOST_NAME}:${this.SITE_PORT}`;
   this.APP_BASE = process.env.APP_BASE || '/';
 

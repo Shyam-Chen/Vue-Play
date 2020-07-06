@@ -24,10 +24,9 @@ module.exports = ({ prod = false } = {}) => ({
   context: SOURCE_ROOT,
   entry: './main.js',
   output: {
-    path: DISTRIBUTION_ROOT,
-    filename: prod ? '[name].[hash].js' : '[name].js',
-    chunkFilename: prod ? '[id].[chunkhash].js' : '[name].js',
-    publicPath: '/',
+    library: `${pkg.name}-[name]`,
+    libraryTarget: 'umd',
+    jsonpFunction: `webpackJsonp_${pkg.name}`,
   },
   module: {
     rules: [
@@ -184,6 +183,9 @@ module.exports = ({ prod = false } = {}) => ({
     },
   },
   devServer: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
     contentBase: DISTRIBUTION_ROOT,
     historyApiFallback: true,
     host: env.HOST_NAME,
